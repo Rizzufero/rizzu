@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Game Tebak Angka</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Permainan Tebak Kata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin-top: 10px;
+            color: #666;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>hayooo aku yo ngerti kue gabut, ayo tebak tgl ultahku, bener sung dm</h1>
-        <p>Tebak angka antara 1 dan 10 ya wirr g ntok curang doso:</p>
-        <input type="number" id="tebakan" min="1" max="10">
-        <button onclick="cekTebakan()">Cek Tebakan</button>
-        <p id="hasil"></p>
-    </div>
-    <script src="script.js"></script>
+
+<header>
+    <h1>Permainan Tebak Kata</h1>
+</header>
+
+<div class="container">
+    <p>Saya pikirkan sebuah kata. Cobalah tebak kata tersebut!</p>
+    <input type="text" id="guess" placeholder="Tebak kata...">
+    <button onclick="checkGuess()">Tebak</button>
+    <p id="message"></p>
+</div>
+
+<script>
+    const secretWord = "kucing";
+
+    function checkGuess() {
+        const guess = document.getElementById("guess").value.toLowerCase();
+
+        if (guess === secretWord) {
+            document.getElementById("message").textContent = "Selamat! Anda benar, kata yang saya pikirkan adalah 'kucing'.";
+        } else {
+            document.getElementById("message").textContent = "Tebakan Anda salah. Coba lagi!";
+        }
+    }
+</script>
+
 </body>
 </html>
